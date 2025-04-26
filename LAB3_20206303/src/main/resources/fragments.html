@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>navbar pedido</title>
+        <title>Sistema Hospital</title>
     </head>
     <body>
         <nav>
@@ -10,5 +10,10 @@
             <a th:href="@{/doctor}">Doctores</a> |
             <a th:href="@{/paciente}">Pacientes</a>
         </nav>
+
+        <hr/>
+
+        <!-- Acá se inyectará el contenido específico de cada página -->
+        <div th:replace="${contenido}"></div>
     </body>
 </html>

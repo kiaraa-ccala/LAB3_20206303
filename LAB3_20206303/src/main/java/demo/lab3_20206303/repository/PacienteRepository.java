@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.data.repository.query.Param;
 
 
-public interface HospitalRepository extends JpaRepository<hospital, Integer> {
+public interface PacienteRepository extends JpaRepository<paciente, Integer> {
 
     @Query("SELECT e FROM doctor e WHERE " +
             "LOWER(e.nombre) LIKE LOWER(CONCAT('%', :filter, '%')) "
