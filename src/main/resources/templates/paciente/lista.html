@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista de Pacientes</title>
+    </head>
+    <body>
+
+        <div th:replace="fragments :: navbar"></div>
+
+        <h2>Lista de Pacientes</h2>
+
+        <a th:href="@{/paciente/derivar}">
+            <button>Derivar pacientes</button>
+        </a>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Género</th>
+                    <th>Diagnóstico</th>
+                    <th>Doctor</th>
+                    <th>Hospital</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${pacientes}">
+                    <td th:text="${p.nombre}">Nombre</td>
+                    <td th:text="${p.edad}">Edad</td>
+                    <td th:text="${p.genero}">Género</td>
+                    <td th:text="${p.diagnostico}">Diagnóstico</td>
+                    <td th:text="${p.doctor.nombre}">Doctor</td>
+                    <td th:text="${p.hospital.nombre}">Hospital</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
