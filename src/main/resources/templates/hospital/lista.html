@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Hospitales</title>
+    </head>
+    <body>
+
+        <div th:replace="fragments :: navbar"></div>
+
+        <h2>Lista de Hospitales</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="h : ${hospitales}">
+                    <td th:text="${h.nombre}">Nombre</td>
+                    <td th:text="${h.direccion}">Dirección</td>
+                    <td th:text="${h.telefono}">Teléfono</td>
+                    <td>
+                        <form th:action="@{'/hospital/' + ${h.id} + '/doctores'}" method="get" style="display:inline;">
+                            <button type="submit">Mostrar doctores</button>
+                        </form>
+                        <form th:action="@{'/hospital/' + ${h.id} + '/pacientes'}" method="get" style="display:inline;">
+                            <button type="submit">Mostrar pacientes</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
