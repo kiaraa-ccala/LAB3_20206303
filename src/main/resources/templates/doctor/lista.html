@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head><title>Lista de Doctores</title></head>
+    <body>
+
+        <div th:replace="fragments :: navbar"></div>
+
+        <h2>Doctores</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Hospital</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="d : ${doctores}">
+                    <td th:text="${d.nombre}">Nombre</td>
+                    <td th:text="${d.especialidad}">Especialidad</td>
+                    <td th:text="${d.hospital.nombre}">Hospital</td>
+                    <td>
+                        <form th:action="@{'/doctor/' + ${d.id} + '/citas'}" method="get">
+                            <button type="submit">Próximas citas</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
