@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Navbar</title>
+    </head>
+    <body>
+        <div th:fragment="navbar">
+            <form th:action="@{/templates/hospital}" method="get" style="display: inline;">
+                <button type="submit">Hospitales</button>
+            </form>
+
+            <form th:action="@{/templates/doctor}" method="get" style="display: inline;">
+                <button type="submit">Doctores</button>
+            </form>
+
+            <form th:action="@{/templates/paciente}" method="get" style="display: inline;">
+                <button type="submit">Pacientes</button>
+            </form>
+        </div>
+    </body>
+</html>
